@@ -197,17 +197,17 @@ def score(classifier):
     classifier = SklearnClassifier(classifier)
     classifier.train(trainset)
 
-    pred =
+    pred = classifier.batch_classify(test)
+    return accuracy_score(tag_test, pred)
+
+feature_number = []
+
 for d in feature_number:
     word_scores = create_word_bigram_scores()
     best_words = find_best_words(word_scores, int(d))
 
     posFeatures = pos_features(best_word_features_com)
     negFeatures = neg_features(best_word_features_com)
- classifier.batch_classify(test)
-    return accuracy_score(tag_test, pred)
-
-feature_number = []
 
   
 def store_classifier(clf, trainset, filepath):
